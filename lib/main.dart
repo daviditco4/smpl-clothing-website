@@ -1,27 +1,21 @@
 import 'package:flutter/material.dart';
 
+import 'pages/home/home_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    const brandYellow = Color(0xFFF1DC3A);
+
     return MaterialApp(
-      title: 'SMPL Clothing',
+      title: 'SMPL Wear',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: brandYellow,
         fontFamily: 'Louis George Cafe',
       ),
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Test')),
-      body: Container(),
+      routes: {'/': (_) => HomePage()},
     );
   }
 }
