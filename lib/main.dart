@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: brandYellow,
         shadowColor: brandBlack,
+        canvasColor: Colors.white,
         fontFamily: 'Louis George Cafe',
         textTheme: const TextTheme(
           subtitle1: TextStyle(

@@ -58,6 +58,13 @@ flutter:
     - web/images/shirts/shirt_3.png
     - web/images/shirts/shirt_4.png
     - web/images/shirts/shirt_5.png
+    - web/images/arrows/down_arrow_yellow.png
+    - web/images/arrows/right_arrow_yellow.png
+    - web/images/arrows/left_arrow_yellow.png
+    - web/images/arrows/down_arrow_black.png
+    - web/images/arrows/up_arrow_black.png
+    - web/images/arrows/right_arrow_black.png
+    - web/images/arrows/left_arrow_black.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
