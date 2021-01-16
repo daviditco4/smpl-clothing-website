@@ -3,8 +3,8 @@ import 'package:flutter/foundation.dart';
 import '../utils/clothing_size.dart';
 import '../utils/price.dart';
 
-class Shirt {
-  const Shirt({
+class Shirt with ChangeNotifier {
+  Shirt({
     @required this.serverId,
     @required this.brandId,
     @required this.name,
