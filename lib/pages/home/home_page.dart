@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    const arrowMargin = 30.0;
+    const arrowMargin = 12.5;
     const arrowHeight = 15.0;
     const aSecond = Duration(seconds: 1);
 

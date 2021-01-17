@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/other/footer.dart';
+// import '../../widgets/other/footer.dart';
 import '../../widgets/other/shirts_grid.dart';
 
 class ShirtsOverviewPage extends StatelessWidget {
@@ -12,11 +12,11 @@ class ShirtsOverviewPage extends StatelessWidget {
         children: [
           Expanded(
             child: Padding(
-              // padding: const EdgeInsets.symmetric(
-              //   horizontal: 240.0,
-              //   vertical: 80.0,
-              // ),
-              padding: const EdgeInsets.all(80.0),
+              // padding: const EdgeInsets.all(80.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 80.0,
+                vertical: 40.0,
+              ),
               child: Stack(
                 alignment: AlignmentDirectional.center,
                 children: [
@@ -29,7 +29,7 @@ class ShirtsOverviewPage extends StatelessWidget {
               ),
             ),
           ),
-          Footer(),
+          // Footer(),
         ],
       ),
     );
