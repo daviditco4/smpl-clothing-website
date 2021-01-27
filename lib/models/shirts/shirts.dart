@@ -87,4 +87,8 @@ class Shirts with ChangeNotifier {
   ];
 
   List<Shirt> get values => [..._values];
+
+  Shirt findByServerId(String serverId) {
+    return _values.firstWhere((value) => value.serverId == serverId);
+  }
 }

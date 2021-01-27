@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'models/shirts/shirts.dart';
 import 'pages/home/home_page.dart';
+import 'pages/home/shirt_details_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -63,7 +64,10 @@ class MyApp extends StatelessWidget {
           ),
           iconTheme: const IconThemeData(size: 16.0, color: brandYellow),
         ),
-        routes: {'/': (_) => HomePage()},
+        routes: {
+          '/': (_) => HomePage(),
+          ShirtDetailsPage.routeName: (_) => ShirtDetailsPage(),
+        },
       ),
     );
   }

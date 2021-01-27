@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/shirts/shirt.dart';
+import '../../pages/home/shirt_details_page.dart';
 
 class ShirtItem extends StatelessWidget {
   @override
@@ -39,7 +40,17 @@ class ShirtItem extends StatelessWidget {
       height: 252.0,
       child: Row(
         children: [
-          Expanded(child: Image.asset(shirt.imageUrls[0], fit: BoxFit.contain)),
+          Expanded(
+            child: FlatButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  ShirtDetailsPage.routeName,
+                  arguments: shirt.serverId,
+                );
+              },
+              child: Image.asset(shirt.imageUrls[0], fit: BoxFit.contain),
+            ),
+          ),
           const SizedBox(width: 18.0),
           Container(
             width: 100.0,
