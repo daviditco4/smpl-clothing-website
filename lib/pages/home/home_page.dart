@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
+import '../../widgets/other/arrow_button.dart';
 import 'logo_page.dart';
 import 'shirts_overview_page.dart';
 
@@ -64,18 +65,16 @@ class _HomePageState extends State<HomePage> {
               Positioned(
                 bottom: arrowMargin,
                 height: arrowHeight,
-                child: InkWell(
-                  onTap: () {
+                child: ArrowButton(
+                  onPressed: () {
                     _controller.animateToPage(
                       1,
                       duration: aSecond,
                       curve: Curves.easeInOut,
                     );
                   },
-                  child: Image.asset(
-                    'web/images/arrows/down_arrow_yellow.png',
-                    fit: BoxFit.fitHeight,
-                  ),
+                  direction: AxisDirection.down,
+                  brightness: Brightness.dark,
                 ),
               ),
             ],
@@ -87,18 +86,16 @@ class _HomePageState extends State<HomePage> {
               Positioned(
                 top: arrowMargin,
                 height: arrowHeight,
-                child: InkWell(
-                  onTap: () {
+                child: ArrowButton(
+                  onPressed: () {
                     _controller.animateToPage(
                       0,
                       duration: aSecond,
                       curve: Curves.easeInOut,
                     );
                   },
-                  child: Image.asset(
-                    'web/images/arrows/up_arrow_black.png',
-                    fit: BoxFit.fitHeight,
-                  ),
+                  direction: AxisDirection.up,
+                  brightness: Brightness.light,
                 ),
               ),
             ],
