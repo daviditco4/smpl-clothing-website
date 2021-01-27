@@ -4,13 +4,16 @@ class ArrowButton extends StatelessWidget {
   const ArrowButton({
     @required this.onPressed,
     @required this.direction,
+    this.arrowLength = 20.0,
     this.brightness,
     this.label,
   })  : assert(onPressed == null || brightness != null),
-        assert(direction != null);
+        assert(direction != null),
+        assert(arrowLength != null);
 
   final void Function() onPressed;
   final AxisDirection direction;
+  final double arrowLength;
   final Brightness brightness;
   final String label;
 
@@ -59,11 +62,11 @@ class ArrowButton extends StatelessWidget {
           ),
         ),
       if (label != null) const SizedBox(width: 16.0, height: 16.0),
-      Expanded(
-        child: Image.asset(
-          'web/images/arrows/${_directionValue}_arrow_$color.png',
-          fit: isVertical ? BoxFit.fitHeight : BoxFit.fitWidth,
-        ),
+      Image.asset(
+        'web/images/arrows/${_directionValue}_arrow_$color.png',
+        width: isVertical ? null : arrowLength,
+        height: isVertical ? arrowLength : null,
+        fit: isVertical ? BoxFit.fitHeight : BoxFit.fitWidth,
       ),
     ];
     children =
@@ -73,7 +76,9 @@ class ArrowButton extends StatelessWidget {
 
     return InkWell(
       onTap: onPressed,
-      child: isVertical ? Column(children: children) : Row(children: children),
+      child: isVertical
+          ? Column(children: children, mainAxisSize: MainAxisSize.min)
+          : Row(children: children, mainAxisSize: MainAxisSize.min),
     );
   }
 }

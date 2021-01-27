@@ -43,8 +43,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    const arrowMargin = 12.5;
-    const arrowHeight = 15.0;
+    const arrowMargin = 10.0;
     const aSecond = Duration(seconds: 1);
 
     return Scaffold(
@@ -64,7 +63,6 @@ class _HomePageState extends State<HomePage> {
               LogoPage(),
               Positioned(
                 bottom: arrowMargin,
-                height: arrowHeight,
                 child: ArrowButton(
                   onPressed: () {
                     _controller.animateToPage(
@@ -85,7 +83,6 @@ class _HomePageState extends State<HomePage> {
               ShirtsOverviewPage(),
               Positioned(
                 top: arrowMargin,
-                height: arrowHeight,
                 child: ArrowButton(
                   onPressed: () {
                     _controller.animateToPage(
