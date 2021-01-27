@@ -64,8 +64,8 @@ class _HomePageState extends State<HomePage> {
               Positioned(
                 bottom: arrowMargin,
                 height: arrowHeight,
-                child: FlatButton(
-                  onPressed: () {
+                child: InkWell(
+                  onTap: () {
                     _controller.animateToPage(
                       1,
                       duration: aSecond,
@@ -87,8 +87,8 @@ class _HomePageState extends State<HomePage> {
               Positioned(
                 top: arrowMargin,
                 height: arrowHeight,
-                child: FlatButton(
-                  onPressed: () {
+                child: InkWell(
+                  onTap: () {
                     _controller.animateToPage(
                       0,
                       duration: aSecond,

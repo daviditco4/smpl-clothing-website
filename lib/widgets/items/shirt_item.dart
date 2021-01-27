@@ -41,8 +41,8 @@ class ShirtItem extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: FlatButton(
-              onPressed: () {
+            child: InkWell(
+              onTap: () {
                 Navigator.of(context).pushNamed(
                   ShirtDetailsPage.routeName,
                   arguments: shirt.serverId,
