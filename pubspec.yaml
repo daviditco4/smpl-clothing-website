@@ -67,6 +67,7 @@ flutter:
     - web/images/arrows/up_arrow_black.png
     - web/images/arrows/right_arrow_black.png
     - web/images/arrows/left_arrow_black.png
+    - web/images/arrows/down_arrow_disabled.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
