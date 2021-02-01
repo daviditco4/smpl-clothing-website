@@ -57,7 +57,7 @@ class _ClothingSizeDropdownButtonState
     return Container(
       height: height,
       decoration: BoxDecoration(
-        border: Border.all(color: theme.shadowColor),
+        border: Border.all(width: 0.6, color: theme.shadowColor),
         color: isInner ? null : const Color(0xFFF1F1F2),
       ),
       alignment: Alignment.center,
