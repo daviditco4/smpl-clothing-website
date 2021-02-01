@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:thumbnails_view/thumbnails_view.dart';
 
 import '../../models/shirts/shirts.dart';
+import 'shirt_details_info.dart';
 
 class ShirtDetails extends StatelessWidget {
   @override
@@ -39,10 +40,7 @@ class ShirtDetails extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 104.0),
-        Container(
-          width: 132.0,
-          child: const Placeholder(),
-        ),
+        ShirtDetailsInfo(shirt),
       ],
     );
   }

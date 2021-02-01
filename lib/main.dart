@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     const brandYellow = Color(0xFFF1DC3A);
     const brandBlack = Color(0xFF121212);
+    final btnShape = MaterialStateProperty.all(const RoundedRectangleBorder());
 
     return ChangeNotifierProvider(
       create: (_) => Shirts(),
@@ -62,8 +63,45 @@ class MyApp extends StatelessWidget {
               color: brandBlack,
             ),
             subtitle2: TextStyle(fontSize: 15.0, color: brandBlack),
+            headline4: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 30.9,
+              color: brandBlack,
+            ),
+            button: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 11.1,
+              letterSpacing: 1.8,
+              color: brandBlack,
+            ),
+            bodyText1: TextStyle(
+              fontStyle: FontStyle.italic,
+              fontSize: 15.6,
+              color: brandBlack,
+            ),
+            overline: TextStyle(
+              fontSize: 7.05,
+              letterSpacing: 1.8,
+              color: brandBlack,
+            ),
           ),
           iconTheme: const IconThemeData(size: 16.0, color: brandYellow),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ButtonStyle(
+              shape: btnShape,
+              side: MaterialStateProperty.all(BorderSide.none),
+              backgroundColor: MaterialStateProperty.all(brandBlack),
+            ),
+          ),
+          outlinedButtonTheme: OutlinedButtonThemeData(
+            style: ButtonStyle(
+              shape: btnShape,
+              side: MaterialStateProperty.all(
+                const BorderSide(color: brandBlack),
+              ),
+              backgroundColor: MaterialStateProperty.all(Colors.white),
+            ),
+          ),
         ),
         routes: {
           '/': (_) => HomePage(),
