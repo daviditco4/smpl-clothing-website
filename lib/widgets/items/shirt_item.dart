@@ -45,7 +45,7 @@ class ShirtItem extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushNamed(
                   ShirtDetailsPage.routeName,
-                  arguments: shirt.serverId,
+                  arguments: shirt.id,
                 );
               },
               child: Image.asset(shirt.imageUrls[0], fit: BoxFit.contain),
@@ -65,7 +65,7 @@ class ShirtItem extends StatelessWidget {
                   overflow: TextOverflow.visible,
                 ),
                 const SizedBox(height: 7.5),
-                Text(shirt.brandId, style: textTheme.caption),
+                Text(shirt.id, style: textTheme.caption),
                 const SizedBox(height: 13.5),
                 Text('${shirt.price}', style: textTheme.subtitle2),
               ],

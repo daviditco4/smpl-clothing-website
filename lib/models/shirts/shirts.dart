@@ -7,8 +7,7 @@ import 'shirt.dart';
 class Shirts with ChangeNotifier {
   var _values = [
     Shirt(
-      serverId: 's1',
-      brandId: '#C001',
+      id: '#C001',
       name: 'CASINO',
       imageUrls: ['web/images/shirts/shirt_0.png'],
       price: const Price(1799.0),
@@ -20,8 +19,7 @@ class Shirts with ChangeNotifier {
       },
     ),
     Shirt(
-      serverId: 's2',
-      brandId: '#C002',
+      id: '#C002',
       name: 'LA LUNA',
       imageUrls: ['web/images/shirts/shirt_1.png'],
       price: const Price(1799.0),
@@ -33,8 +31,7 @@ class Shirts with ChangeNotifier {
       },
     ),
     Shirt(
-      serverId: 's3',
-      brandId: '#C003',
+      id: '#C003',
       name: 'RUNNER',
       imageUrls: ['web/images/shirts/shirt_2.png'],
       price: const Price(1799.0),
@@ -46,8 +43,7 @@ class Shirts with ChangeNotifier {
       },
     ),
     Shirt(
-      serverId: 's4',
-      brandId: '#C004',
+      id: '#C004',
       name: 'THUNDER',
       imageUrls: ['web/images/shirts/shirt_3.png'],
       price: const Price(1799.0),
@@ -59,8 +55,7 @@ class Shirts with ChangeNotifier {
       },
     ),
     Shirt(
-      serverId: 's5',
-      brandId: '#C005',
+      id: '#C005',
       name: 'WINDOW',
       imageUrls: ['web/images/shirts/shirt_4.png'],
       price: const Price(1799.0),
@@ -72,8 +67,7 @@ class Shirts with ChangeNotifier {
       },
     ),
     Shirt(
-      serverId: 's6',
-      brandId: '#C006',
+      id: '#C006',
       name: 'BASIC TEE',
       imageUrls: ['web/images/shirts/shirt_5.png'],
       price: const Price(1799.0),
@@ -88,7 +82,7 @@ class Shirts with ChangeNotifier {
 
   List<Shirt> get values => [..._values];
 
-  Shirt findByServerId(String serverId) {
-    return _values.firstWhere((value) => value.serverId == serverId);
+  Shirt findById(String id) {
+    return _values.firstWhere((value) => value.id == id);
   }
 }

@@ -5,8 +5,7 @@ import '../utils/price.dart';
 
 class Shirt with ChangeNotifier {
   Shirt({
-    @required this.serverId,
-    @required this.brandId,
+    @required this.id,
     @required this.name,
     @required this.imageUrls,
     @required this.price,
@@ -14,8 +13,7 @@ class Shirt with ChangeNotifier {
     @required this.stock,
   });
 
-  final String serverId;
-  final String brandId;
+  final String id;
   final String name;
   final List<String> imageUrls;
   final Price price;

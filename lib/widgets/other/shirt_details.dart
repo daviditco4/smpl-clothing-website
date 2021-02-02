@@ -8,11 +8,8 @@ import 'shirt_details_info.dart';
 class ShirtDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final serverId = ModalRoute.of(context).settings.arguments as String;
-    final shirt = Provider.of<Shirts>(
-      context,
-      listen: false,
-    ).findByServerId(serverId);
+    final id = ModalRoute.of(context).settings.arguments as String;
+    final shirt = Provider.of<Shirts>(context, listen: false).findById(id);
 
     return Row(
       children: [
