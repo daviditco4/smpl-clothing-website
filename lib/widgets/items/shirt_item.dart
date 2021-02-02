@@ -28,7 +28,10 @@ class ShirtItem extends StatelessWidget {
     //             const SizedBox(height: 7.5),
     //             Text(shirt.brandId, style: textTheme.caption),
     //             const SizedBox(height: 13.5),
-    //             Text('${shirt.price}', style: textTheme.subtitle2),
+    //             Text(
+    //               '\$ ${shirt.price.toStringAsFixed(2)}',
+    //               style: textTheme.subtitle2,
+    //             ),
     //           ],
     //         ),
     //       ),
@@ -67,7 +70,10 @@ class ShirtItem extends StatelessWidget {
                 const SizedBox(height: 7.5),
                 Text(shirt.id, style: textTheme.caption),
                 const SizedBox(height: 13.5),
-                Text('${shirt.price}', style: textTheme.subtitle2),
+                Text(
+                  '\$ ${shirt.price.toStringAsFixed(2)}',
+                  style: textTheme.subtitle2,
+                ),
               ],
             ),
           ),

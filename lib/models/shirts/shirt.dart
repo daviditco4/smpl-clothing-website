@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 
 import '../utils/clothing_size.dart';
-import '../utils/price.dart';
 
 class Shirt with ChangeNotifier {
   Shirt({
@@ -16,7 +15,7 @@ class Shirt with ChangeNotifier {
   final String id;
   final String name;
   final List<String> imageUrls;
-  final Price price;
+  final double price;
   final String description;
   final Map<ClothingSize, int> stock;
 }

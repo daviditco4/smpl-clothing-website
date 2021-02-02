@@ -27,7 +27,10 @@ class ShirtDetailsInfo extends StatelessWidget {
           headerSpacing,
           Text(shirt.id, style: primaryTextTheme.button),
           headerSpacing,
-          Text('${shirt.price}', style: primaryTextTheme.bodyText1),
+          Text(
+            '\$ ${shirt.price.toStringAsFixed(2)}',
+            style: primaryTextTheme.bodyText1,
+          ),
           const SizedBox(height: 28.0),
           BuyShirtForm(shirt),
           const SizedBox(height: 8.0),
