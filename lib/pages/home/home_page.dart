@@ -1,45 +1,12 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/other/arrow_button.dart';
+import '../../widgets/other/footer.dart';
 import 'logo_page.dart';
 import 'shirts_overview_page.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-//   var _isInitialized = false;
-  final _controller = CarouselController();
-
-//   @override
-//   void didChangeDependencies() {
-//     if (!_isInitialized) {
-//       const shirtsOverviewBackgroundAspectRatio = 6328.0 / 6148.0;
-//       final pageHeight = MediaQuery.of(context).size.height;
-//       final shirtsOverviewBackgroundHeight = pageHeight - 90.0 - 2 * 80.0;
-//       final shirtsOverviewBackgroundWidth =
-//           shirtsOverviewBackgroundHeight * shirtsOverviewBackgroundAspectRatio;
-
-//       precacheImage(
-//         const AssetImage('web/images/brand/logo.png'),
-//         context,
-//         size: const Size(350.0, 88.2),
-//       );
-//       precacheImage(
-//         const AssetImage('web/images/brand/shirts_overview_background.png'),
-//         context,
-//         size: Size(
-//           shirtsOverviewBackgroundWidth,
-//           shirtsOverviewBackgroundHeight,
-//         ),
-//       );
-//       _isInitialized = true;
-//     }
-//     super.didChangeDependencies();
-//   }
+class HomePage extends StatelessWidget {
+  final _controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,16 +14,9 @@ class _HomePageState extends State<HomePage> {
     const aSecond = Duration(seconds: 1);
 
     return Scaffold(
-      body: CarouselSlider(
-        carouselController: _controller,
-        options: CarouselOptions(
-          height: MediaQuery.of(context).size.height,
-          viewportFraction: 1.0,
-          scrollDirection: Axis.vertical,
-          enableInfiniteScroll: false,
-          pageSnapping: false,
-        ),
-        items: [
+      body: ListView(
+        controller: _controller,
+        children: [
           Stack(
             alignment: AlignmentDirectional.bottomCenter,
             children: [
@@ -65,10 +25,10 @@ class _HomePageState extends State<HomePage> {
                 bottom: arrowMargin,
                 child: ArrowButton(
                   onPressed: () {
-                    _controller.animateToPage(
-                      1,
+                    _controller.animateTo(
+                      MediaQuery.of(context).size.height,
                       duration: aSecond,
-                      curve: Curves.easeInOut,
+                      curve: Curves.easeOutBack,
                     );
                   },
                   direction: AxisDirection.down,
@@ -85,10 +45,10 @@ class _HomePageState extends State<HomePage> {
                 top: arrowMargin,
                 child: ArrowButton(
                   onPressed: () {
-                    _controller.animateToPage(
-                      0,
+                    _controller.animateTo(
+                      0.0,
                       duration: aSecond,
-                      curve: Curves.easeInOut,
+                      curve: Curves.easeInOutQuart,
                     );
                   },
                   direction: AxisDirection.up,
@@ -97,6 +57,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
+          Footer(),
         ],
       ),
     );
