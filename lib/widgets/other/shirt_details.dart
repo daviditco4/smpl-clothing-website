@@ -10,6 +10,7 @@ class ShirtDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     final id = ModalRoute.of(context).settings.arguments as String;
     final shirt = Provider.of<Shirts>(context, listen: false).findById(id);
+    const thumbnailSide = 41.0;
 
     return Row(
       children: [
@@ -19,14 +20,15 @@ class ShirtDetails extends StatelessWidget {
             thumbnailBuilder: (ctx, image, isCurrent) {
               return Container(
                 margin: const EdgeInsets.all(6.0),
-                width: 32.8,
-                height: 32.8,
+                width: thumbnailSide,
+                height: thumbnailSide,
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: isCurrent ? Theme.of(ctx).shadowColor : Colors.grey,
-                    width: 2.4,
+                    width: 1.6,
                   ),
                 ),
+                padding: const EdgeInsets.all(4.1),
                 child: Image(fit: BoxFit.fill, image: image),
               );
             },
