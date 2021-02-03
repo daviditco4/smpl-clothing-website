@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// import '../../widgets/other/footer.dart';
 import '../../widgets/other/shirts_grid.dart';
 
 class ShirtsOverviewPage extends StatelessWidget {
@@ -8,29 +7,21 @@ class ShirtsOverviewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
-      child: Column(
-        children: [
-          Expanded(
-            child: Padding(
-              // padding: const EdgeInsets.all(80.0),
-              padding: const EdgeInsets.symmetric(
-                horizontal: 80.0,
-                vertical: 40.0,
-              ),
-              child: Stack(
-                alignment: AlignmentDirectional.center,
-                children: [
-                  Image.asset(
-                    'web/images/brand/shirts_overview_background.png',
-                    fit: BoxFit.contain,
-                  ),
-                  ShirtsGrid(),
-                ],
-              ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 308.0,
+        vertical: 56.0,
+      ),
+      child: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.contain,
+            image: AssetImage(
+              'web/images/brand/shirts_overview_background.png',
             ),
           ),
-          // Footer(),
-        ],
+        ),
+        padding: const EdgeInsets.symmetric(vertical: 24.0),
+        child: ShirtsGrid(),
       ),
     );
   }

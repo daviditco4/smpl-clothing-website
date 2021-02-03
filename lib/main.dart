@@ -52,17 +52,17 @@ class MyApp extends StatelessWidget {
           primaryTextTheme: const TextTheme(
             subtitle1: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 17.625,
+              fontSize: 13.2,
               letterSpacing: 0.675,
               color: brandBlack,
             ),
             caption: TextStyle(
               fontStyle: FontStyle.italic,
-              fontSize: 11.475,
+              fontSize: 8.6,
               letterSpacing: 0.675,
               color: brandBlack,
             ),
-            subtitle2: TextStyle(fontSize: 15.0, color: brandBlack),
+            subtitle2: TextStyle(fontSize: 11.25, color: brandBlack),
             headline4: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 30.9,

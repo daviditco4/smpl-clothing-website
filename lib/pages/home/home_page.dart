@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const arrowMargin = 10.0;
+    const arrowMargin = 18.0;
     const aSecond = Duration(seconds: 1);
 
     return Scaffold(

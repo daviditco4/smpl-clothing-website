@@ -32,13 +32,5 @@ class ShirtsGrid extends StatelessWidget {
         ),
       ],
     );
-    // return Row(
-    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //   children: shirts.values.map(
-    //     (shirt) {
-    //       return ChangeNotifierProvider.value(value: shirt, child: ShirtItem());
-    //     },
-    //   ).toList(),
-    // );
   }
 }
