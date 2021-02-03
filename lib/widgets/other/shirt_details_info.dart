@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../converter.dart';
 import '../../models/shirts/shirt.dart';
 import 'buy_shirt_form.dart';
 import 'shirt_care_info.dart';
@@ -27,10 +28,7 @@ class ShirtDetailsInfo extends StatelessWidget {
           headerSpacing,
           Text(shirt.id, style: primaryTextTheme.button),
           headerSpacing,
-          Text(
-            '\$ ${shirt.price.toStringAsFixed(2)}',
-            style: primaryTextTheme.bodyText1,
-          ),
+          Text(priceToString(shirt.price), style: primaryTextTheme.bodyText1),
           const SizedBox(height: 28.0),
           BuyShirtForm(shirt),
           const SizedBox(height: 8.0),

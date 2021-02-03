@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../converter.dart';
 import '../../models/shirts/shirt.dart';
 import '../../pages/home/shirt_details_page.dart';
 
@@ -38,10 +39,7 @@ class ShirtItem extends StatelessWidget {
                 const SizedBox(height: 4.0),
                 Text(shirt.id, style: textTheme.caption),
                 const SizedBox(height: 8.0),
-                Text(
-                  '\$ ${shirt.price.toStringAsFixed(2)}',
-                  style: textTheme.subtitle2,
-                ),
+                Text(priceToString(shirt.price), style: textTheme.subtitle2),
               ],
             ),
           ),
