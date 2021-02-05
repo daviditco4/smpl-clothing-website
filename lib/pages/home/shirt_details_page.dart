@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/other/arrow_button.dart';
 import '../../widgets/other/footer.dart';
+import '../../widgets/other/nav_bar.dart';
 import '../../widgets/other/shirt_details.dart';
 
 class ShirtDetailsPage extends StatelessWidget {
@@ -10,15 +11,17 @@ class ShirtDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const navBar = NavBar(Brightness.light);
     final pageSize = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: navBar,
       body: ListView(
         controller: _controller,
         children: [
           Container(
             width: pageSize.width,
-            height: pageSize.height,
+            height: pageSize.height - navBar.preferredSize.height,
             child: Column(
               children: [
                 Expanded(

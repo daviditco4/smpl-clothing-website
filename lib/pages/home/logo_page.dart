@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 class LogoPage extends StatelessWidget {
+  const LogoPage({@required this.height});
+  final double height;
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
     return Container(
-      height: MediaQuery.of(context).size.height,
-      color: theme.shadowColor,
+      height: height,
+      color: theme.colorScheme.surface,
       alignment: Alignment.center,
       child: Column(
         mainAxisSize: MainAxisSize.min,

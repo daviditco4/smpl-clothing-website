@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import '../../widgets/other/shirts_grid.dart';
 
 class ShirtsOverviewPage extends StatelessWidget {
+  const ShirtsOverviewPage({@required this.height});
+  final double height;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height,
+      height: height,
       padding: const EdgeInsets.symmetric(
         horizontal: 308.0,
         vertical: 56.0,
