@@ -19,8 +19,12 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'SMPL Wear',
         theme: ThemeData(
-          primaryColor: brandYellow,
-          shadowColor: brandBlack,
+          primaryColorBrightness: Brightness.light,
+          colorScheme: const ColorScheme.dark(
+            primary: brandYellow,
+            primaryVariant: brandYellow,
+            error: Color(0xFFEC1C24),
+          ),
           canvasColor: Colors.white,
           disabledColor: Colors.black54,
           fontFamily: 'Louis George Cafe',
@@ -37,15 +41,26 @@ class MyApp extends StatelessWidget {
               letterSpacing: 13.5,
               color: brandYellow,
             ),
-            caption: TextStyle(
+            bodyText2: TextStyle(
               fontSize: 9.375,
               letterSpacing: 0.45,
               color: brandYellow,
             ),
-            overline: TextStyle(
+            caption: TextStyle(
               fontWeight: FontWeight.w300,
               fontSize: 9.0,
               letterSpacing: 4.5,
+              color: brandYellow,
+            ),
+            overline: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 8.5,
+              letterSpacing: 1.8,
+              color: brandYellow,
+            ),
+            button: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 12.6,
               color: brandYellow,
             ),
           ),
@@ -54,42 +69,37 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: 13.2,
               letterSpacing: 0.675,
-              color: brandBlack,
+              color: Colors.black,
             ),
             caption: TextStyle(
               fontStyle: FontStyle.italic,
               fontSize: 8.6,
               letterSpacing: 0.675,
-              color: brandBlack,
+              color: Colors.black,
             ),
-            subtitle2: TextStyle(fontSize: 11.25, color: brandBlack),
+            subtitle2: TextStyle(fontSize: 11.25),
             headline4: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 30.9,
-              color: brandBlack,
+              color: Colors.black,
             ),
             button: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 11.1,
               letterSpacing: 1.8,
-              color: brandBlack,
+              color: Colors.black,
             ),
             bodyText1: TextStyle(
               fontStyle: FontStyle.italic,
               fontSize: 15.6,
-              color: brandBlack,
+              color: Colors.black,
             ),
-            overline: TextStyle(
-              fontSize: 7.05,
-              letterSpacing: 1.8,
-              color: brandBlack,
-            ),
+            overline: TextStyle(fontSize: 7.05, letterSpacing: 1.8),
           ),
-          iconTheme: const IconThemeData(size: 16.0, color: brandYellow),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
+              minimumSize: MaterialStateProperty.all(const Size(120.0, 30.0)),
               shape: btnShape,
-              side: MaterialStateProperty.all(BorderSide.none),
               backgroundColor: MaterialStateProperty.all(brandBlack),
             ),
           ),
@@ -99,7 +109,11 @@ class MyApp extends StatelessWidget {
               side: MaterialStateProperty.all(
                 const BorderSide(color: brandBlack),
               ),
-              backgroundColor: MaterialStateProperty.all(Colors.white),
+            ),
+          ),
+          textButtonTheme: TextButtonThemeData(
+            style: ButtonStyle(
+              minimumSize: MaterialStateProperty.all(const Size.square(32.0)),
             ),
           ),
         ),

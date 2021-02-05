@@ -42,8 +42,8 @@ class ArrowButton extends StatelessWidget {
     final labelColor = onPressed == null
         ? theme.disabledColor
         : brightness == Brightness.light
-            ? theme.shadowColor
-            : theme.primaryColor;
+            ? theme.colorScheme.onPrimary
+            : theme.colorScheme.primary;
     final color = onPressed == null
         ? 'disabled'
         : brightness == Brightness.light

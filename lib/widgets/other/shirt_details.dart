@@ -18,13 +18,14 @@ class ShirtDetails extends StatelessWidget {
           child: ThumbnailsView(
             images: shirt.imageUrls.map((url) => AssetImage(url)).toList(),
             thumbnailBuilder: (ctx, image, isCurrent) {
+              final selectedBorderColor = Theme.of(ctx).colorScheme.background;
               return Container(
                 margin: const EdgeInsets.all(6.0),
                 width: thumbnailSide,
                 height: thumbnailSide,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: isCurrent ? Theme.of(ctx).shadowColor : Colors.grey,
+                    color: isCurrent ? selectedBorderColor : Colors.grey,
                     width: 1.6,
                   ),
                 ),

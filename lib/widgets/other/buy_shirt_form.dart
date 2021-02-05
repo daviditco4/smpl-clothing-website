@@ -19,6 +19,8 @@ class _BuyShirtFormState extends State<BuyShirtForm> {
     final theme = Theme.of(context);
     final primaryTextTheme = theme.primaryTextTheme;
     final bigOverline = primaryTextTheme.overline.copyWith(fontSize: 15.375);
+    final button = primaryTextTheme.button;
+    final yellowButton = button.copyWith(color: theme.colorScheme.primary);
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -38,10 +40,7 @@ class _BuyShirtFormState extends State<BuyShirtForm> {
         const SizedBox(height: 8.0),
         ElevatedButton(
           onPressed: () {},
-          child: Text(
-            'COMPRAR',
-            style: primaryTextTheme.button.copyWith(color: theme.primaryColor),
-          ),
+          child: Text('COMPRAR', style: yellowButton),
         ),
       ],
     );

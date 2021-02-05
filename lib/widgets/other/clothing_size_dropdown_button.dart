@@ -20,19 +20,8 @@ class ClothingSizeDropdownButton extends StatefulWidget {
 class _ClothingSizeDropdownButtonState
     extends State<ClothingSizeDropdownButton> {
   var _isOpen = false;
-
-  String _labelShort(ClothingSize size) {
-    switch (size) {
-      case ClothingSize.small:
-        return 'S';
-      case ClothingSize.medium:
-        return 'M';
-      case ClothingSize.large:
-        return 'L';
-      default:
-        return 'unknown';
-    }
-  }
+  var _isInit = false;
+  ThemeData _theme;
 
   String get _selectedSizeLabel {
     switch (widget.getter()) {
@@ -47,17 +36,33 @@ class _ClothingSizeDropdownButtonState
     }
   }
 
+  String _labelShort(ClothingSize size) {
+    switch (size) {
+      case ClothingSize.small:
+        return 'S';
+      case ClothingSize.medium:
+        return 'M';
+      case ClothingSize.large:
+        return 'L';
+      default:
+        return 'unknown';
+    }
+  }
+
   Widget _buildContent({
     @required double height,
     @required bool isInner,
     ClothingSize size,
   }) {
-    final theme = Theme.of(context);
+    if (!_isInit) {
+      _theme = Theme.of(context);
+      _isInit = true;
+    }
 
     return Container(
       height: height,
       decoration: BoxDecoration(
-        border: Border.all(width: 0.6, color: theme.shadowColor),
+        border: Border.all(width: 0.6, color: _theme.colorScheme.background),
         color: isInner ? null : const Color(0xFFF1F1F2),
       ),
       alignment: Alignment.center,
@@ -69,7 +74,7 @@ class _ClothingSizeDropdownButtonState
             : widget.getter() == null
                 ? 'select'
                 : _selectedSizeLabel,
-        style: theme.primaryTextTheme.overline.copyWith(
+        style: _theme.primaryTextTheme.overline.copyWith(
           fontWeight: FontWeight.bold,
         ),
       ),

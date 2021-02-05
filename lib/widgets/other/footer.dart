@@ -9,7 +9,7 @@ class Footer extends StatelessWidget {
 
     return Container(
       height: 90.0,
-      color: theme.shadowColor,
+      color: theme.colorScheme.surface,
       padding: const EdgeInsets.only(
         top: 15.0,
         left: 15.0,
@@ -31,7 +31,7 @@ class Footer extends StatelessWidget {
                   const SizedBox(height: 7.5),
                   Text(
                     'contacto.sample.ar@gmail.com',
-                    style: textTheme.caption,
+                    style: textTheme.bodyText2,
                   ),
                 ],
               ),
@@ -42,14 +42,18 @@ class Footer extends StatelessWidget {
                 children: [
                   Text('REDES SOCIALES', style: textTheme.subtitle1),
                   const SizedBox(height: 4.0),
-                  const Icon(LineAwesomeIcons.instagram),
+                  Icon(
+                    LineAwesomeIcons.instagram,
+                    size: 16.0,
+                    color: theme.colorScheme.primary,
+                  ),
                 ],
               ),
             ],
           ),
           Text(
             'copyright SAMPLE - 2021 - todos los derechos reservados',
-            style: textTheme.overline,
+            style: textTheme.caption,
           ),
         ],
       ),
