@@ -2,10 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class NavBar extends StatelessWidget implements PreferredSizeWidget {
-  const NavBar(this.brightness);
+  const NavBar(this.brightness, {this.scrollToShirtsOverview});
   final Brightness brightness;
+  final Future<void> Function() scrollToShirtsOverview;
   @override
   Size get preferredSize => const Size.fromHeight(32.0); // previous: 92.0
+
+  void _popUntilHomeAndRefresh(
+    NavigatorState navigator, {
+    bool shouldGoToShirtsOverview = false,
+  }) {
+    navigator.popUntil(ModalRoute.withName('/'));
+    navigator.pushReplacementNamed('/', arguments: shouldGoToShirtsOverview);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +24,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
     final actualTextTheme = isDark
         ? theme.textTheme
         : theme.textTheme.apply(bodyColor: Colors.black);
-    final navigator = Navigator.of(context);
+    final nav = Navigator.of(context);
     final button = actualTextTheme.button;
     const buttonSpacing = SizedBox(width: 36.0);
 
@@ -50,15 +59,18 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           TextButton(
-            onPressed: () {
-              navigator.popUntil(ModalRoute.withName('/'));
-              navigator.pushReplacementNamed('/');
-            },
+            onPressed: () => _popUntilHomeAndRefresh(nav),
             child: Text('HOME', style: button),
           ),
           Spacer(),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              if (scrollToShirtsOverview == null) {
+                _popUntilHomeAndRefresh(nav, shouldGoToShirtsOverview: true);
+              } else {
+                scrollToShirtsOverview();
+              }
+            },
             child: Text('DROP #1', style: button),
           ),
           buttonSpacing,

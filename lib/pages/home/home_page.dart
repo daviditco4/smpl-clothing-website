@@ -7,20 +7,34 @@ import 'logo_page.dart';
 import 'shirts_overview_page.dart';
 
 class HomePage extends StatelessWidget {
-  final _controller = ScrollController();
-
   @override
   Widget build(BuildContext context) {
-    const navBar = NavBar(Brightness.dark);
-    const arrowMargin = 18.0;
-    const aSecond = Duration(seconds: 1);
+    print('Building home page...');
+    var navBar = const NavBar(Brightness.dark);
     final pageHeight = MediaQuery.of(context).size.height;
     final bodyHeight = pageHeight - navBar.preferredSize.height;
+    final isScrolled = ModalRoute.of(context).settings.arguments == true;
+    final ctrl = ScrollController(
+      initialScrollOffset: isScrolled ? bodyHeight : 0.0,
+    );
+    const aSec = Duration(seconds: 1);
+    final scrollToShirtsOverview = () {
+      return ctrl.animateTo(
+        bodyHeight,
+        duration: aSec,
+        curve: Curves.easeOutBack,
+      );
+    };
+    navBar = NavBar(
+      Brightness.dark,
+      scrollToShirtsOverview: scrollToShirtsOverview,
+    );
+    const arrowMargin = 18.0;
 
     return Scaffold(
       appBar: navBar,
       body: ListView(
-        controller: _controller,
+        controller: ctrl,
         children: [
           Stack(
             alignment: AlignmentDirectional.bottomCenter,
@@ -29,13 +43,7 @@ class HomePage extends StatelessWidget {
               Positioned(
                 bottom: arrowMargin,
                 child: ArrowButton(
-                  onPressed: () {
-                    _controller.animateTo(
-                      bodyHeight,
-                      duration: aSecond,
-                      curve: Curves.easeOutBack,
-                    );
-                  },
+                  onPressed: scrollToShirtsOverview,
                   direction: AxisDirection.down,
                   brightness: Brightness.dark,
                 ),
@@ -50,9 +58,9 @@ class HomePage extends StatelessWidget {
                 top: arrowMargin,
                 child: ArrowButton(
                   onPressed: () {
-                    _controller.animateTo(
+                    ctrl.animateTo(
                       0.0,
-                      duration: aSecond,
+                      duration: aSec,
                       curve: Curves.easeInOutQuart,
                     );
                   },
