@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../models/shirts/shirts.dart';
 import '../../widgets/other/arrow_button.dart';
 import '../../widgets/other/footer.dart';
 import '../../widgets/other/nav_bar.dart';
+import '../../widgets/other/other_shirts_row.dart';
 import '../../widgets/other/shirt_details.dart';
 
 class ShirtDetailsPage extends StatelessWidget {
@@ -13,6 +16,8 @@ class ShirtDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     const navBar = NavBar(Brightness.light);
     final pageSize = MediaQuery.of(context).size;
+    final id = ModalRoute.of(context).settings.arguments as String;
+    final shirt = Provider.of<Shirts>(context, listen: false).findById(id);
 
     return Scaffold(
       appBar: navBar,
@@ -30,7 +35,7 @@ class ShirtDetailsPage extends StatelessWidget {
                       horizontal: 332.0,
                       vertical: 104.0,
                     ),
-                    child: ShirtDetails(),
+                    child: ShirtDetails(shirt),
                   ),
                 ),
                 Padding(
@@ -51,6 +56,12 @@ class ShirtDetailsPage extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          Container(
+            height: 244.0,
+            padding: const EdgeInsets.symmetric(horizontal: 230.0),
+            alignment: Alignment.center,
+            child: OtherShirtsRow(shirt.id),
           ),
           Footer(),
         ],

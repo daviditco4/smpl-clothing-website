@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:thumbnails_view/thumbnails_view.dart';
 
-import '../../models/shirts/shirts.dart';
+import '../../models/shirts/shirt.dart';
 import 'shirt_details_info.dart';
 
 class ShirtDetails extends StatelessWidget {
+  const ShirtDetails(this.shirt);
+  final Shirt shirt;
+
   @override
   Widget build(BuildContext context) {
-    final id = ModalRoute.of(context).settings.arguments as String;
-    final shirt = Provider.of<Shirts>(context, listen: false).findById(id);
     const thumbnailSide = 41.0;
 
     return Row(

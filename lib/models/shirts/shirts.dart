@@ -84,4 +84,8 @@ class Shirts with ChangeNotifier {
   Shirt findById(String id) {
     return _values.firstWhere((value) => value.id == id);
   }
+
+  Iterable<Shirt> allValuesButOne(String id) {
+    return _values.where((value) => value.id != id);
+  }
 }

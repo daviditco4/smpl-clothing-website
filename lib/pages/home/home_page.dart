@@ -9,7 +9,6 @@ import 'shirts_overview_page.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('Building home page...');
     var navBar = const NavBar(Brightness.dark);
     final pageHeight = MediaQuery.of(context).size.height;
     final bodyHeight = pageHeight - navBar.preferredSize.height;

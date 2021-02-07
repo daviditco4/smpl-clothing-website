@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../converter.dart';
 import '../../models/shirts/shirt.dart';
-import '../../pages/home/shirt_details_page.dart';
+import '../other/shirt_image_link.dart';
 
 class ShirtItem extends StatelessWidget {
   @override
@@ -17,17 +17,7 @@ class ShirtItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Expanded(
-            child: InkWell(
-              onTap: () {
-                Navigator.of(context).pushNamed(
-                  ShirtDetailsPage.routeName,
-                  arguments: shirt.id,
-                );
-              },
-              child: Image.asset(shirt.imageUrls[0], fit: BoxFit.contain),
-            ),
-          ),
+          Expanded(child: ShirtImageLink(shirt, shouldPush: true)),
           const SizedBox(height: 14.0),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 32.0),
