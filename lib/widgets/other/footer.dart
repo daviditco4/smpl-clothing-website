@@ -2,14 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class Footer extends StatelessWidget {
+  const Footer(this.brightness);
+  final Brightness brightness;
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final textTheme = theme.textTheme;
+    final isDark = brightness == Brightness.dark;
+    var textTheme = theme.textTheme;
+    final colorScheme = theme.colorScheme;
+
+    if (!isDark) {
+      textTheme = textTheme.apply(
+        displayColor: Colors.black,
+        bodyColor: Colors.black,
+      );
+    }
 
     return Container(
       height: 90.0,
-      color: theme.colorScheme.surface,
+      color: isDark ? colorScheme.surface : colorScheme.onSurface,
       padding: const EdgeInsets.only(
         top: 15.0,
         left: 15.0,
@@ -45,7 +57,7 @@ class Footer extends StatelessWidget {
                   Icon(
                     LineAwesomeIcons.instagram,
                     size: 16.0,
-                    color: theme.colorScheme.primary,
+                    color: isDark ? colorScheme.primary : colorScheme.onPrimary,
                   ),
                 ],
               ),

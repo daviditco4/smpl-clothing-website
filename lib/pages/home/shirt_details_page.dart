@@ -63,7 +63,7 @@ class ShirtDetailsPage extends StatelessWidget {
             alignment: Alignment.center,
             child: OtherShirtsRow(shirt.id),
           ),
-          Footer(),
+          Footer(Brightness.dark),
         ],
       ),
     );
