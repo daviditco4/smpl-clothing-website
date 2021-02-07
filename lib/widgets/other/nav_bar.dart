@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 import '../../alert_dialog_builder.dart';
+import '../../pages/about/about_page.dart';
 
 class NavBar extends StatelessWidget implements PreferredSizeWidget {
   const NavBar({
@@ -16,12 +17,18 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => Size.fromHeight(isCollapsed ? 32.0 : 92.0);
 
-  void _popUntilHomeAndRefresh(
-    NavigatorState navigator, {
-    bool shouldGoToShirtsOverview = false,
+  void _popUntilHomeAndReplace(
+    NavigatorState nav,
+    String routeName, {
+    bool shouldGoToShirtsOverview,
   }) {
-    navigator.popUntil(ModalRoute.withName('/'));
-    navigator.pushReplacementNamed('/', arguments: shouldGoToShirtsOverview);
+    nav.popUntil(
+      (route) {
+        final routName = route.settings.name;
+        return routName == '/' || routName == AboutPage.routeName;
+      },
+    );
+    nav.pushReplacementNamed(routeName, arguments: shouldGoToShirtsOverview);
   }
 
   @override
@@ -51,14 +58,14 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
           isCollapsed ? CrossAxisAlignment.stretch : CrossAxisAlignment.center,
       children: [
         TextButton(
-          onPressed: () => _popUntilHomeAndRefresh(nav),
+          onPressed: () => _popUntilHomeAndReplace(nav, '/'),
           child: Text('HOME', style: actualButton),
         ),
         Spacer(),
         TextButton(
           onPressed: () {
             if (scrollToShirtsOverview == null) {
-              _popUntilHomeAndRefresh(nav, shouldGoToShirtsOverview: true);
+              _popUntilHomeAndReplace(nav, '/', shouldGoToShirtsOverview: true);
             } else {
               scrollToShirtsOverview();
             }
@@ -66,7 +73,10 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
           child: Text('DROP #1', style: actualButton),
         ),
         buttonSpacing,
-        TextButton(onPressed: () {}, child: Text('ABOUT', style: actualButton)),
+        TextButton(
+          onPressed: () => _popUntilHomeAndReplace(nav, AboutPage.routeName),
+          child: Text('ABOUT', style: actualButton),
+        ),
         if (isCollapsed) buttonSpacing,
         if (isCollapsed) cartButton,
       ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'models/shirts/shirts.dart';
+import 'pages/about/about_page.dart';
 import 'pages/home/home_page.dart';
 import 'pages/home/shirt_details_page.dart';
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
             primaryVariant: brandYellow,
             error: Color(0xFFEC1C24),
           ),
+          accentColor: brandYellow,
           canvasColor: Colors.white,
           disabledColor: Colors.black54,
           fontFamily: 'Louis George Cafe',
@@ -47,8 +49,8 @@ class MyApp extends StatelessWidget {
               color: brandYellow,
             ),
             caption: TextStyle(
-              fontWeight: FontWeight.w300,
-              fontSize: 9.0,
+              fontStyle: FontStyle.italic,
+              fontSize: 9.45,
               letterSpacing: 4.5,
               color: brandYellow,
             ),
@@ -63,6 +65,13 @@ class MyApp extends StatelessWidget {
               fontSize: 12.6,
               color: brandYellow,
             ),
+            headline4: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 39.0,
+              letterSpacing: 1.8,
+              color: brandYellow,
+            ),
+            bodyText1: TextStyle(fontSize: 13.66, color: brandYellow),
           ),
           primaryTextTheme: const TextTheme(
             subtitle1: TextStyle(
@@ -96,6 +105,7 @@ class MyApp extends StatelessWidget {
             ),
             overline: TextStyle(fontSize: 7.05, letterSpacing: 1.8),
           ),
+          iconTheme: const IconThemeData(color: brandYellow),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
               minimumSize: MaterialStateProperty.all(const Size(120.0, 30.0)),
@@ -120,6 +130,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (_) => HomePage(),
           ShirtDetailsPage.routeName: (_) => ShirtDetailsPage(),
+          AboutPage.routeName: (_) => AboutPage(),
         },
       ),
     );

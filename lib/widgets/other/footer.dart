@@ -65,7 +65,12 @@ class Footer extends StatelessWidget {
           ),
           Text(
             'copyright SAMPLE - 2021 - todos los derechos reservados',
-            style: textTheme.caption,
+            style: TextStyle(
+              fontWeight: FontWeight.w300,
+              fontSize: 9.0,
+              letterSpacing: 4.5,
+              color: colorScheme.primary,
+            ),
           ),
         ],
       ),
