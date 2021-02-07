@@ -56,6 +56,12 @@ flutter:
   assets:
     - web/images/brand/logo.png
     - web/images/brand/shirts_overview_background.png
+    - web/images/slides/slide0.png
+    - web/images/slides/slide1.png
+    - web/images/slides/slide2.png
+    - web/images/slides/slide3.png
+    - web/images/slides/slide4.png
+    - web/images/slides/slide5.png
     - web/images/shirts/shirt_0.png
     - web/images/shirts/shirt_1.png
     - web/images/shirts/shirt_2.png
