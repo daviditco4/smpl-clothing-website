@@ -24,6 +24,8 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^4.3.2+4
+  video_player: ^1.0.1
+  video_player_web: '>=0.1.4+1 <2.0.0'
   carousel_slider: ^2.3.1
   line_awesome_flutter: ^1.0.1
   thumbnails_view: ^0.0.1-nullsafety.0
@@ -68,6 +70,7 @@ flutter:
     - web/images/arrows/right_arrow_black.png
     - web/images/arrows/left_arrow_black.png
     - web/images/arrows/down_arrow_disabled.png
+    - web/videos/teaser.mp4
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
