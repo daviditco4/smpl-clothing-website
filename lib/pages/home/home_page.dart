@@ -6,34 +6,58 @@ import '../../widgets/other/nav_bar.dart';
 import 'logo_page.dart';
 import 'shirts_overview_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var _isInitialized = false;
+  ScrollController _ctrl;
+
+  @override
+  void didChangeDependencies() {
+    if (!_isInitialized) {
+      final isScrolled = ModalRoute.of(context).settings.arguments == true;
+      if (isScrolled) {
+        final pageHeight = MediaQuery.of(context).size.height;
+        const navBar = NavBar(brightness: Brightness.dark, isCollapsed: true);
+        final bodyHeight = pageHeight - navBar.preferredSize.height;
+        _ctrl = ScrollController(initialScrollOffset: bodyHeight);
+      } else {
+        _ctrl = ScrollController();
+      }
+    }
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
-    var navBar = const NavBar(Brightness.dark);
     final pageHeight = MediaQuery.of(context).size.height;
+    var navBar = const NavBar(brightness: Brightness.dark, isCollapsed: true);
     final bodyHeight = pageHeight - navBar.preferredSize.height;
-    final isScrolled = ModalRoute.of(context).settings.arguments == true;
-    final ctrl = ScrollController(
-      initialScrollOffset: isScrolled ? bodyHeight : 0.0,
-    );
     const aSec = Duration(seconds: 1);
+
     final scrollToShirtsOverview = () {
-      return ctrl.animateTo(
+      return _ctrl.animateTo(
         bodyHeight,
         duration: aSec,
         curve: Curves.easeOutBack,
       );
     };
+
     navBar = NavBar(
-      Brightness.dark,
+      brightness: Brightness.dark,
+      isCollapsed: true,
       scrollToShirtsOverview: scrollToShirtsOverview,
     );
+
     const arrowMargin = 18.0;
 
     return Scaffold(
       appBar: navBar,
       body: ListView(
-        controller: ctrl,
+        controller: _ctrl,
         children: [
           Stack(
             alignment: AlignmentDirectional.bottomCenter,
@@ -57,7 +81,7 @@ class HomePage extends StatelessWidget {
                 top: arrowMargin,
                 child: ArrowButton(
                   onPressed: () {
-                    ctrl.animateTo(
+                    _ctrl.animateTo(
                       0.0,
                       duration: aSec,
                       curve: Curves.easeInOutQuart,

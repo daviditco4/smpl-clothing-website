@@ -14,7 +14,7 @@ class ShirtDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const navBar = NavBar(Brightness.light);
+    const navBar = NavBar(brightness: Brightness.dark, isCollapsed: true);
     final pageSize = MediaQuery.of(context).size;
     final id = ModalRoute.of(context).settings.arguments as String;
     final shirt = Provider.of<Shirts>(context, listen: false).findById(id);
