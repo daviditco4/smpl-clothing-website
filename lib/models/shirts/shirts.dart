@@ -80,10 +80,9 @@ class Shirts with ChangeNotifier {
   ];
 
   List<Shirt> get values => [..._values];
-
-  Shirt findById(String id) {
-    return _values.firstWhere((value) => value.id == id);
-  }
+  int get quantity => _values.length;
+  int indexOf(Shirt shirt) => _values.indexOf(shirt);
+  Shirt findById(String id) => _values.firstWhere((value) => value.id == id);
 
   Iterable<Shirt> allValuesButOne(String id) {
     return _values.where((value) => value.id != id);

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../models/shirts/shirts.dart';
+import '../../widgets/items/shirt_slide_item.dart';
 import '../../widgets/other/arrow_button.dart';
 import '../../widgets/other/footer.dart';
 import '../../widgets/other/nav_bar.dart';
+import '../../widgets/other/shirts_carousel_slider.dart';
 import 'logo_page.dart';
 import 'shirts_overview_page.dart';
 
@@ -59,17 +63,27 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
         controller: _ctrl,
         children: [
-          Stack(
-            alignment: AlignmentDirectional.bottomCenter,
-            children: [
-              LogoPage(height: bodyHeight),
-              Positioned(
-                bottom: arrowMargin,
-                child: ArrowButton(
-                  onPressed: scrollToShirtsOverview,
-                  direction: AxisDirection.down,
-                  brightness: Brightness.dark,
-                ),
+          ShirtCarouselSlider(
+            height: bodyHeight,
+            items: [
+              Stack(
+                alignment: AlignmentDirectional.bottomCenter,
+                children: [
+                  LogoPage(height: bodyHeight),
+                  Positioned(
+                    bottom: arrowMargin,
+                    child: ArrowButton(
+                      onPressed: scrollToShirtsOverview,
+                      direction: AxisDirection.down,
+                      brightness: Brightness.dark,
+                    ),
+                  ),
+                ],
+              ),
+              ...Provider.of<Shirts>(context).values.map(
+                (shirt) {
+                  return ShirtSlideItem(shirt, height: bodyHeight);
+                },
               ),
             ],
           ),
